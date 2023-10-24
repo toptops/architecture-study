@@ -1,0 +1,13 @@
+rootProject.name = 'hexagonal-architecture'
+include 'domain'
+include 'adapter'
+include 'container'
+include 'application'
+include 'common'
+include 'application:web'
+findProject(':application:web')?.name = 'web'
+include 'application:infra'
+findProject(':application:infra')?.name = 'infra'
+include 'application:infra:mysql'
+findProject(':application:infra:mysql')?.name = 'mysql'
+
