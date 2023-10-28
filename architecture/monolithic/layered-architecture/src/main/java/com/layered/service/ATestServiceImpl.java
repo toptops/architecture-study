@@ -1,7 +1,6 @@
 package com.layered.service;
 
 import com.layered.domain.ATest;
-import com.layered.dto.ATestResponse;
 import com.layered.repository.ATestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,8 +11,8 @@ public class ATestServiceImpl implements ATestService{
 
     private final ATestRepository aTestRepository;
 
-    public ATestResponse test() {
+    public String test() {
         ATest aTest = aTestRepository.selectByOne();
-        return new ATestResponse(aTest.getData());
+        return aTest.getData();
     }
 }

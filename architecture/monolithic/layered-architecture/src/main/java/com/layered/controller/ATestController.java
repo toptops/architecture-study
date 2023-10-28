@@ -15,6 +15,7 @@ public class ATestController {
 
     @GetMapping
     public ATestResponse test() {
-        return aTestServiceImpl.test();
+        ATestResponse response = new ATestResponse(aTestServiceImpl.test());
+        return response;
     }
 }
