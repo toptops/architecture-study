@@ -1,4 +1,4 @@
-package com.layered.dto;
+package com.layered.web.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

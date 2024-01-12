@@ -1,5 +1,8 @@
 package com.layered.service;
 
+import com.layered.web.api.ATestResponse;
+
 public interface ATestService {
-    String test();
+    ATestResponse directToService();
+    String indirectToService();
 }
