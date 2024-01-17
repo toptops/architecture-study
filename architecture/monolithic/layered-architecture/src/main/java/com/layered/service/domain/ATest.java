@@ -8,4 +8,5 @@ import lombok.Data;
 public class ATest {
     private long id;
     private String data;
+    private ATestEnum testEnum;
 }

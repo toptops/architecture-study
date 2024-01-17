@@ -1,8 +1,10 @@
 package com.layered.service;
 
-import com.layered.repository.entity.ATestEntity;
+import com.layered.infra.mysql.entity.ATestEntity;
+import com.layered.infra.mysql.entity.TestEnum;
 import com.layered.service.domain.ATest;
-import com.layered.repository.ATestRepository;
+import com.layered.infra.mysql.repository.ATestRepository;
+import com.layered.service.domain.ATestEnum;
 import com.layered.web.api.ATestResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,16 +22,20 @@ public class ATestServiceImpl implements ATestService{
     @Override
     public ATestResponse directToService() {
         ATestEntity aTestEntity = aTestRepository.selectByOne();
-        ATest aTest = new ATest(aTestEntity.getId(), aTestEntity.getData());
+        ATestEnum aTestEnum = convertEnum(aTestEntity.getTestEnum());
+        ATest aTest = new ATest(aTestEntity.getId(), aTestEntity.getData(), aTestEnum);
         return new ATestResponse(aTest.getData());
     }
 
     @Override
     public String indirectToService() {
         ATestEntity aTestEntity = aTestRepository.selectByOne();
-        ATest aTest = new ATest(aTestEntity.getId(), aTestEntity.getData());
+        ATestEnum aTestEnum = convertEnum(aTestEntity.getTestEnum());
+        ATest aTest = new ATest(aTestEntity.getId(), aTestEntity.getData(), aTestEnum);
         return aTest.getData();
     }
 
-
+    private ATestEnum convertEnum(TestEnum testEnum) {
+        return ATestEnum.TEST;
+    }
 }

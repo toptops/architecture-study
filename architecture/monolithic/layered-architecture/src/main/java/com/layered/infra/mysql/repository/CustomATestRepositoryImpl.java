@@ -1,4 +1,4 @@
-package com.layered.repository;
+package com.layered.infra.mysql.repository;
 
 import org.springframework.stereotype.Component;
 

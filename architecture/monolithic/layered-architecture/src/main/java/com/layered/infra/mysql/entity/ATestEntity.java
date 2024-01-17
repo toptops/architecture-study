@@ -1,4 +1,4 @@
-package com.layered.repository.entity;
+package com.layered.infra.mysql.entity;
 
 import lombok.Getter;
 
@@ -14,4 +14,8 @@ public class ATestEntity {
 
     @Column(name = "data", nullable = false)
     private String data;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "enum", nullable = false)
+    private TestEnum testEnum;
 }
